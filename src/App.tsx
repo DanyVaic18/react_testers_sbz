@@ -8,7 +8,7 @@ const TABS = [
 ];
 
 function App() {
-  const [controlTab, setControlTab] = useState(1);
+  const [controlTabs, setControlTab] = useState(1);
   const [count, setCount] = useState(0);
 
   const hoursBlocks = useMemo(() => {
@@ -32,7 +32,7 @@ function App() {
               return (
                 <li key={tab.id}>
                   <button
-                    className={`cursor-pointer rounded-md border px-4 py-1 transition-all ${controlTab === tab.id ? "text-amber-400" : ""}`}
+                    className={`cursor-pointer rounded-md border px-4 py-1 transition-all ${controlTabs === tab.id ? "text-amber-400" : ""}`}
                     onClick={() => setControlTab(tab.id)}
                   >
                     {tab.text}
@@ -44,7 +44,7 @@ function App() {
         </nav>
       </header>
 
-      {controlTab === 1 ? (
+      {controlTabs === 1 ? (
         <div className="flex items-start gap-2 p-4">
           <div className="flex flex-1/12 flex-col gap-2">
             <div className="inline-flex rounded-md border-2 border-sky-500">
