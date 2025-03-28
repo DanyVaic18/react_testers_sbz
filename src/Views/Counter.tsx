@@ -70,9 +70,10 @@ const CounterPage = () => {
           })}
         </div>
         <div className="flex flex-col items-start gap-2">
-          {hoursBlocks.slice(0, 4).map((hours) => {
+          {hoursBlocks.slice(0, 4).map((hours, index) => {
             return (
               <button
+                key={index}
                 className={`flex-1 cursor-pointer rounded-md border px-4 py-1 transition-all`}
               >
                 {hours}
