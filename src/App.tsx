@@ -17,7 +17,7 @@ function App() {
         <nav className="flex justify-between p-3">
           <div className="flex items-center gap-2">
             <img src={reactLogo} className="logo react" alt="React logo" />
-            <h2>Tester React</h2>
+            <h3>Tester React</h3>
           </div>
           <ul className="flex justify-between gap-4 px-4">
             {TABS.map((tab) => {
