@@ -1,17 +1,30 @@
 import { Link, useLocation } from "wouter";
 import AppWRoutes from "./router/AppWRoutes";
 import reactLogo from "./assets/react.svg";
+import { useMemo } from "react";
+import SideBar from "./layout/SideBar";
 
 const TABS = [
-  { id: 0, name: "Home", text: "Inicio", href: "/" },
-  { id: 1, name: "initProyect", text: "Contador", href: "/init-react-vite" },
+  { id: 0, name: "Home", text: "Inicio", href: "/", showSidebar: true },
+  {
+    id: 1,
+    name: "initProyect",
+    text: "Contador",
+    href: "/init-react-vite",
+    showSidebar: false,
+  },
 ];
 
 function App() {
   const [pathName] = useLocation();
+
+  const currentTab = useMemo(() => {
+    return TABS.find((tab) => tab.href === pathName);
+  }, [pathName]);
+
   return (
-    <div className="flex h-[100vh] flex-col bg-neutral-100">
-      <header className="bg-slate-700 text-neutral-50">
+    <div className="flex flex-col bg-neutral-100">
+      <header className="sticky top-0 bg-slate-700 text-neutral-50">
         <nav className="flex justify-between p-3">
           <div className="flex items-center gap-2">
             <img src={reactLogo} className="logo react" alt="React logo" />
@@ -33,7 +46,10 @@ function App() {
           </ul>
         </nav>
       </header>
-      <AppWRoutes />
+      <div className="flex w-full">
+        {currentTab?.showSidebar && <SideBar />}
+        <AppWRoutes />
+      </div>
     </div>
   );
 }

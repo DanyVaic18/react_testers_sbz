@@ -15,7 +15,7 @@ const CounterPage = () => {
   }, []);
 
   return (
-    <div className="flex items-start gap-2 p-4">
+    <div className="flex w-full items-start gap-2 p-4">
       <div className="flex flex-1/12 flex-col gap-2">
         <CardHorizontal
           src={viteLogo}
